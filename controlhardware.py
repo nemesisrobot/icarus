@@ -6,6 +6,10 @@ import network
 import time
 from machine import Pin
 
+import network
+import time
+from machine import Pin
+
 #instanciando classes para trabalhar com os recursos de rede e GPIO
 ap_if = network.WLAN(network.AP_IF)
 sta_if = network.WLAN(network.STA_IF)
@@ -16,6 +20,7 @@ def activeStation():
     ap_if.active(False)
     sta_if.active(True)
     sta_if.connect('keila','29202122')
+    print(str(sta_if.isconnected()))
 
 #nivel alto
 def enableGPIO():
@@ -24,6 +29,10 @@ def enableGPIO():
 #nivel baixo
 def desableGPIO():
     pin.value(0)
+
+#status atual
+def statusGPIO():
+    return int(pin.value())
 
 #desconecta do wifi
 def closeConnection():

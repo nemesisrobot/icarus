@@ -9,14 +9,20 @@ import time
 
 #metodo para execução do GPIO
 def control():
-	#aguarda um minuto e verifica se existe nota
+    #aguarda um minuto e verifica se existe nota
     time.sleep(60)
     response = rq.getNotes()
 
     #1 executa nota de religa
     if(1 == int(response['corte'])):
-    	gp.enableGPIO()
+        gp.enableGPIO()
 
     #0 executa nota de desliga
     if(0 == int(response['corte'])):
-    	gp.desableGPIO()
+        gp.desableGPIO()
+
+    #atualizando status do device
+    status = gp.statusGPIO()
+    print(type(status))
+    print(status)
+    rq.postStatusDevice(status)
