@@ -1,7 +1,6 @@
-# icarus
-firmware feito em micropython
-
-#Autor:Diego Silva
-#Data:30/05/2020
-#Descrição: criação de Firmware
-#Issue: #1
+# icarus\n
+#firmware feito em micropython\n
+#Autor:Diego Silva\n
+#Data:30/05/2020\n
+#Descrição: criação de Firmware\n
+#Issue: #1\n
