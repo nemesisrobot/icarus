@@ -16,10 +16,10 @@ sta_if = network.WLAN(network.STA_IF)
 pin  = Pin(0, Pin.OUT)
 
 #metodo para habilita o modo station, desabilitar access point e conexão no wifi
-def activeStation():
+def activeStation(setting):
     ap_if.active(False)
     sta_if.active(True)
-    sta_if.connect('keila','29202122')
+    sta_if.connect(setting.getSSID(),setting.getPassword())
     print(str(sta_if.isconnected()))
 
 #nivel alto

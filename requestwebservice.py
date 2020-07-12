@@ -7,9 +7,9 @@ import json
 headers = {'content-type':'application/json'}
 
 #retorna dados do servidor
-def getNotes():
+def getNotes(url_callbak):
     #faz requests, se a response for 200 ele retorna o json obtido
-    response = urequests.get('http://192.168.15.15:5000/notaservico/xpto1')
+    response = urequests.get(url_callbak)
     if(response.status_code == 200):
         dados = str(response.text)
         dados = dados.replace("\n","")
@@ -20,7 +20,7 @@ def getNotes():
         return json.loads(dados)
 
 #metódo faz post de status do device
-def postStatusDevice(statusnow):
-    payload = {'device':'xpto1','corte':statusnow}
-    resposta = urequests.post(url='http://192.168.15.15:5000/dispositivostatus', data=json.dumps(payload), headers=headers)
+def postStatusDevice(statusnow,url_callbak,device):
+    payload = {'device':device,'corte':statusnow}
+    resposta = urequests.post(url=url_callbak, data=json.dumps(payload), headers=headers)
     print(str(resposta.text))
