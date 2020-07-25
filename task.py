@@ -15,8 +15,23 @@ def runtask():
 	datafile.closeData(file)
 	setting = SettingsDevice(filejson)
 
+	print('Estado inicial {}'.format(str(setting.getStartDevice())))
+	print('Tipo do dado')
+	print(type(setting.getStartDevice()))
+
+	#valdia status inicial do hardware
+	if int(setting.getStartDevice()) == 1:
+		gp.enableGPIO()
+	else:
+		gp.desableGPIO()
+
 	while(True):
-		gp.activeStation(setting)
-		rn.control(setting)
-		gp.closeConnection()
+		try:
+			gp.activeStation(setting)
+			rn.control(setting)
+			gp.closeConnection()
+		except Exception as err:
+			print("{}".format(err))
+			print("Verifique sua conexão e seu servidor backend")
+
 		
