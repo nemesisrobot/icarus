@@ -3,6 +3,7 @@
 	"post":"/dispositivostatus",
 	"get":"/notaservico/",
 	"device":"sala4",
+	"start":0,
 	"ssid":"keila",
 	"password":"29202122"
 }

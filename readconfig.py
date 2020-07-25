@@ -48,6 +48,10 @@ class SettingsDevice:
     #metodo para retornar nome do dispositivo
     def getDeviceName(self):
         return '{}'.format(self._datajson['device'])
+
+    #método retorna estado inicial do dispositivo
+    def getStartDevice(self):
+        return int(self._datajson['start'])
     
 
 
