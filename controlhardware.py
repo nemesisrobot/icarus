@@ -14,6 +14,7 @@ from machine import Pin
 ap_if = network.WLAN(network.AP_IF)
 sta_if = network.WLAN(network.STA_IF)
 pin  = Pin(0, Pin.OUT)
+status = Pin(2, Pin.OUT)
 
 #metodo para habilita o modo station, desabilitar access point e conexão no wifi
 def activeStation(setting):
@@ -33,6 +34,10 @@ def desableGPIO():
 #status atual
 def statusGPIO():
     return int(pin.value())
+
+#GPIO status conexão
+def statusconnection(wifi):
+	status.value(wifi)
 
 #desconecta do wifi
 def closeConnection():
