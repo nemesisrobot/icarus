@@ -29,9 +29,11 @@ def runtask():
 		try:
 			gp.activeStation(setting)
 			rn.control(setting)
+			gp.statusconnection(1)
 			gp.closeConnection()
 		except Exception as err:
 			print("{}".format(err))
 			print("Verifique sua conexão e seu servidor backend")
+			gp.statusconnection(0)
 
 		
